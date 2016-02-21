@@ -15,14 +15,7 @@ public class Main {
     private boolean period = false;
 
     public void solution() {
-        int n = readInt(), max = 0;
-
-        for (int a=1; a<=n; a++)
-            for (int b=1; b<=n-a; b++)
-                for (int c=1; c<=n-a-b; c++)
-                    max = (a*b*c > max) ? a*b*c : max;
-
-        out.println(max);
+        
     }
 
     public void run() {
