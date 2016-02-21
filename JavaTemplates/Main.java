@@ -1,3 +1,5 @@
+package JavaTemplates;
+
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -6,7 +8,7 @@ import java.util.Scanner;
 /**
  * Created by Ich on 21.02.2016.
  */
-public class S {
+public class Main {
     private InputStream in;
     private PrintWriter out;
     private Scanner sc;
@@ -35,7 +37,7 @@ public class S {
         exit();
     }
 
-    public static void main(String[] args) { new S().run(); }
+    public static void main(String[] args) { new Main().run(); }
 
     private int readInt() { return sc.nextInt(); }
 
