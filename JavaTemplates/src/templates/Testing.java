@@ -2,26 +2,38 @@ package templates;
 
 import java.io.InputStream;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
- * Created by Tim Kilian on 23.02.16.
+ * Created by Tim Kilian on 26.02.16.
  */
 
-public class SomeMoreInputs {
+public class Testing {
     private InputStream in;
     private PrintWriter out;
     private Scanner sc;
-    private boolean period = false;
+    private boolean period = true;
 
     public void solution() {
+        int n = readInt();
+        int[] arr = readInt(n);
 
+        printOut(interpolationSearch(arr, 5));
     }
 
-    // TODO graph inputs
+    public static int interpolationSearch(final int[] arr, final int x) {
+        return interpolationSearch(arr, x, 0, arr.length - 1);
+    }
+
+    public static int interpolationSearch(final int[] arr, final int x, int left, int right) {
+        int mid = left + ((x-arr[left])/(arr[right]-arr[left]))*(right-left);
+        if (right < left) return -1;
+
+        if (arr[left] == x || arr[mid] == x || arr[right] == x) return mid;
+        else if (arr[mid] < x) return interpolationSearch(arr, x, mid + 1, right);
+        else if (arr[mid] > x) return interpolationSearch(arr, x, left, mid - 1);
+        return mid;
+    }
 
     public void run() {
         in = System.in;
@@ -31,7 +43,7 @@ public class SomeMoreInputs {
 
         int T = 1;
 //        T = readInt();
-        while (T-->0)
+        while (T-- > 0)
             solution();
 
         out.flush();
@@ -40,7 +52,7 @@ public class SomeMoreInputs {
     }
 
     public static void main(String[] args) {
-        new SomeMoreInputs().run();
+        new Testing().run();
     }
 
     private int readInt() {
@@ -77,12 +89,6 @@ public class SomeMoreInputs {
         return Double.parseDouble(readString());
     }
 
-    private double[] readDouble(int n) {
-        double[] arr = new double[n];
-        for (int i = 0; i < n; i++) arr[i] = readDouble();
-        return arr;
-    }
-
     private static void printOut(Object... o) {
         System.out.println(Arrays.deepToString(o));
     }
@@ -93,5 +99,14 @@ public class SomeMoreInputs {
         System.out.println();
     }
 
-    private void exit() { out.close(); System.exit(0); }
+    public static void printArray(String[] arr) {
+        for (String s : arr)
+            System.out.print(s + " ");
+        System.out.println();
+    }
+
+    private void exit() {
+        out.close();
+        System.exit(0);
+    }
 }
