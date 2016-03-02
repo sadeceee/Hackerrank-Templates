@@ -36,7 +36,7 @@ public class Prime {
      * @param b End exclusive
      * @return List of primes
      */
-    public static List<Integer> primesBetween(int a, int b) {
+    public static List<Integer> primesBetween(final int a, final int b) {
         List<Integer> p = new ArrayList<Integer>();
         for (int i=a; i<b; i++)
             if (isPrime(i)) p.add(i);
