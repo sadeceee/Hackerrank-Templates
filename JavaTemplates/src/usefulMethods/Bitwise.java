@@ -6,7 +6,7 @@ package usefulMethods;
 public class Bitwise {
 
     public static boolean isEven(int n) {
-        return (n&1)!=1;
+        return (n&1)==0;
     }
 
     public static boolean isOdd(int n) {
@@ -16,5 +16,4 @@ public class Bitwise {
     public static boolean isPowerOfTwo(int n) {
         return (n & (n-1))==0;
     }
-
 }

@@ -19,7 +19,7 @@ public class Prime {
     public static boolean isPrime(final long value) {
         if (value <= 16)
             return (value == 2 || value == 3 || value == 5 || value == 7 || value == 11 || value == 13);
-        if (value%2 == 0 || value % 3 == 0 || value % 5 == 0 || value % 7 == 0)
+        if ((value&1) == 0 || value%3 == 0 || value%5 == 0 || value%7 == 0)
             return false;
         for (long i=10; i*i <= value; i+=10) {
             if (value % (i+1) == 0) return false;
