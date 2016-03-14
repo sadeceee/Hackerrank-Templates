@@ -21,7 +21,7 @@ public class SomeMoreInputs {
 
     }
 
-    // TODO graph inputs
+    // TODO graph inputs, and more
 
     public void run() {
         in = System.in;
@@ -53,7 +53,7 @@ public class SomeMoreInputs {
         return arr;
     }
 
-    private List<Integer> readIntAsList(int n) {
+    private List<Integer> readList(int n) {
         List<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < n; i++) list.add(readInt());
         return list;
@@ -69,8 +69,20 @@ public class SomeMoreInputs {
         return arr;
     }
 
+    private List<Long> readList(long n) {
+        List<Long> list = new ArrayList<Long>();
+        for (int i = 0; i < n; i++) list.add(readLong());
+        return list;
+    }
+
     private String readString() {
         return sc.next();
+    }
+
+    private String[] readString(int n) {
+        String[] arr = new String[n];
+        for (int i = 0; i < n; i++) arr[i] = readString();
+        return arr;
     }
 
     private double readDouble() {
@@ -89,6 +101,12 @@ public class SomeMoreInputs {
 
     public static void printArray(int[] arr) {
         for (int i : arr)
+            System.out.print(i + " ");
+        System.out.println();
+    }
+
+    public static <T> void printList(List<T> arr) {
+        for (T i : arr)
             System.out.print(i + " ");
         System.out.println();
     }
