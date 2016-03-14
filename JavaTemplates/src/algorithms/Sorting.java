@@ -157,8 +157,8 @@ public class Sorting {
         int pivot = arr[right];
 
         do {
-            while (pivot>arr[i] && i<right) i++;
-            while (pivot<arr[j] && j>left) j--;
+            while (pivot>=arr[i] && i<right) i++;
+            while (pivot<=arr[j] && j>left) j--;
 
             if (i<j) {
                 int temp = arr[i];
