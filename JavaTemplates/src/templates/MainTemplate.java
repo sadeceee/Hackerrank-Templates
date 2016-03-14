@@ -12,12 +12,12 @@ import java.util.Scanner;
  */
 
 public class MainTemplate {
-    private InputStream in;
-    private PrintWriter out;
-    private Scanner sc;
+    public InputStream in;
+    public PrintWriter out;
+    public Scanner sc;
     private String customIN = "";
 
-    public void solution() {
+    private void solution() {
 
     }
 
@@ -28,7 +28,7 @@ public class MainTemplate {
             solution();
     }
 
-    public void run() {
+    private void run() {
         in = customIN.isEmpty()? System.in : new ByteArrayInputStream(customIN.getBytes());
         out = new PrintWriter(System.out);
         sc = new Scanner(in);
@@ -77,11 +77,11 @@ public class MainTemplate {
         System.out.println(Arrays.deepToString(o));
     }
 
-    public static <T> void printArray(T[] arr) {
+    private static <T> void printArray(T[] arr) {
         for (T i : arr)
             System.out.print(i + " ");
         System.out.println();
     }
 
-    private void exit() { out.close(); System.exit(0); }
+    public void exit() { out.close(); System.exit(0); }
 }
