@@ -19,6 +19,33 @@ public class Strings {
     }
 
     /**
+     * Sum of each digits in String
+     * @param s string with numbers
+     * @return sum of digits
+     * @require string consists of numbers
+     */
+    public int sumOfDigits(String s) {
+        int sum = 0;
+        for (char c : s.toCharArray())
+            sum += Character.getNumericValue(c);
+        return sum;
+    }
+
+    /**
+     * Product of each digits in String
+     * @param s string with numbers
+     * @return product of digits
+     * @require string consists of numbers
+     */
+    public long productOfDigits(String s) {
+        if (s.contains("0")) return 0;
+        long product = 1;
+        for (char c : s.toCharArray())
+            product *= Character.getNumericValue(c);
+        return product;
+    }
+
+    /**
      * Sort a String from a-z with insertionsort
      * @param s the string
      * @return sorted string
@@ -122,7 +149,7 @@ public class Strings {
     }
 
     /**
-     * Devide an anagram. Each character occurs %2==0
+     * Devide an anagram. Each character must occurs %2==0
      * @param s the anagram
      * @return s/2 half of string
      * @require isAnagram(s)

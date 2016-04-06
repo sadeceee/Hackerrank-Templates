@@ -1,7 +1,9 @@
 package usefulMethods;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Tim Kilian on 22.02.16.
@@ -28,6 +30,52 @@ public class Prime {
             if (value % (i+9) == 0) return false;
         }
         return true;
+    }
+
+    /**
+     * Count the number of divisors
+     * @param n number
+     * @return number of divisors
+     */
+    public int numberOfDivisors(int n) {
+        if (n==1) return 1;
+        Map<Long, Integer> count = new HashMap<>();
+        List<Long> primeFactors = primeFactorization(n);
+        for (Long i : primeFactors) {
+            int c = count.containsKey(i) ? count.get(i) : 0;
+            count.put(i, ++c);
+        }
+
+        int divisors = 1;
+        for (Integer i : count.values())
+            divisors *= (i+1);
+
+        return divisors;
+    }
+
+    /**
+     * Partition a number in its prime factors
+     * @param n number
+     * @return prime factors
+     */
+    public List<Long> primeFactorization(long n) {
+        List<Long> primeFactors = new ArrayList<Long>();
+        if ((n&1)==0)
+            do { n /= 2;
+                primeFactors.add(2L);
+            } while ((n&1)==0);
+        long maxFactor = (long) Math.sqrt(n), k = 3;
+        while (n>1 && k<=maxFactor) {
+            if (n%k==0) {
+                do { n /= k;
+                    primeFactors.add(k);
+                } while (n%k==0);
+                maxFactor = (long) Math.sqrt(n);
+            }
+            k+=2;
+        }
+        if (n!=1) primeFactors.add(n);
+        return primeFactors;
     }
 
     /**
