@@ -3,7 +3,7 @@ package usefulMethods;
 /**
  * Created by Tim Kilian on 3/28/16.
  */
-public class Arrays {
+public class Array {
 
     public int findMaxElement(int[] arr) {
         int max = Integer.MIN_VALUE;
